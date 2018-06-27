@@ -21,7 +21,7 @@ namespace POM.Tests
 
             LogInPage logIn = new LogInPage(driver);
             PageFactory.InitElements(driver, logIn);
-            logIn.LogIn("User1593", "Aramark22");
+            logIn.LogIn("blaircottingham", "Aramark22");
 
             HomePage homePage = new HomePage(driver);
             PageFactory.InitElements(driver, homePage);
