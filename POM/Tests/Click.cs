@@ -17,11 +17,11 @@ namespace POM.Tests
         public void Test()
         {
             IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://uat-platform.authenticateis.com/Account/Logon");
+            driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
 
             LogInPage logIn = new LogInPage(driver);
             PageFactory.InitElements(driver, logIn);
-            logIn.LogIn("alunjones", "Aramark22");
+            logIn.LogIn("User1593", "Aramark22");
 
             IWebElement element = driver.FindElement(By.XPath("//a[contains(text(),'My Network')]"));
             driver.FindElement(By.XPath("//a[contains(text(),'My Network')]")).Click();
