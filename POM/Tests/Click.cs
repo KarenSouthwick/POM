@@ -8,26 +8,27 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.PageObjects;
 using NUnit.Framework;
 using POM.PageObjects;
+using SeleniumExtras.PageObjects;
 
 namespace POM.Tests
 {
     class Click
     {
         [Test]
-        public void Test()
+        public void ClickTest()
         {
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
 
             LogInPage logIn = new LogInPage(driver);
-            PageFactory.InitElements(driver, logIn);
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("blaircottingham", "Aramark22");
 
             IWebElement element = driver.FindElement(By.XPath("//a[contains(text(),'My Network')]"));
             driver.FindElement(By.XPath("//a[contains(text(),'My Network')]")).Click();
 
             HomePage homePage = new HomePage(driver);
-            PageFactory.InitElements(driver, homePage);
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
             homePage.LogOff();
 
             driver.Quit();

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 
 namespace POM.PageObjects
 {
@@ -12,13 +13,13 @@ namespace POM.PageObjects
     {
         private IWebDriver driver;
 
-        [FindsBy]
+        [SeleniumExtras.PageObjects.FindsBy]
         private IWebElement UserName;
 
-        [FindsBy]
+        [SeleniumExtras.PageObjects.FindsBy]
         private IWebElement Password;
 
-        [FindsBy(How = How.Id, Using = "do-submit")]
+        [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.Id, Using = "do-submit")]
         private IWebElement LoginButton;
         private string testName;
 

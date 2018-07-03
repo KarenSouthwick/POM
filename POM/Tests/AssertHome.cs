@@ -8,29 +8,45 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.PageObjects;
 using NUnit.Framework;
 using POM.PageObjects;
+using SeleniumExtras.PageObjects;
 
 namespace POM.Tests
 {
-    class AssertHome
+    [TestFixture]
+    public class AssertHome
     {
-        [Test]
-        public void Test()
-        {
-            IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
+        IWebDriver driver = new ChromeDriver();
 
+        [OneTimeSetUp]
+        public void Initialize()
+        {
+            driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Window.Size = new System.Drawing.Size(1920, 974);
+        }
+
+        [OneTimeTearDown]
+        public void EndTest()
+        {
+            driver.FindElement(By.CssSelector(".lock")).Click();
+            driver.Quit();
+        }
+
+        [Test, Order(1)]
+        public void HomeTest()
+        {
             LogInPage logIn = new LogInPage(driver);
-            PageFactory.InitElements(driver, logIn);
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("blaircottingham", "Aramark22");
 
             IWebElement element = driver.FindElement(By.ClassName("title"));
-            Assert.AreEqual("AAK (UK) LTD", driver.FindElement(By.ClassName("title")).Text);
+            Assert.AreEqual("DAWN FARM FOODS LTD", driver.FindElement(By.ClassName("title")).Text);
 
             HomePage homePage = new HomePage(driver);
-            PageFactory.InitElements(driver, homePage);
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
             homePage.LogOff();
 
-            driver.Quit();
+
         }
     }
 }

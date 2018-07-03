@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 
 namespace POM.PageObjects
 {
@@ -12,7 +13,7 @@ namespace POM.PageObjects
     {
         private IWebDriver driver;
 
-        [FindsBy(How = How.CssSelector, Using = ".lock")]
+        [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.CssSelector, Using = ".lock")]
         private IWebElement LogOffButton;
 
         public HomePage(IWebDriver driver)
