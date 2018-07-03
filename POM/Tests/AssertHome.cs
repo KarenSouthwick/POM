@@ -46,7 +46,6 @@ namespace POM.Tests
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
             homePage.LogOff();
 
-
         }
     }
 }

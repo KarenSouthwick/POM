@@ -12,14 +12,29 @@ using SeleniumExtras.PageObjects;
 
 namespace POM.Tests
 {
-    class Click
+    [TestFixture]
+    public class Click
     {
-        [Test]
-        public void ClickTest()
-        {
-            IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
+        IWebDriver driver = new ChromeDriver();
 
+        [OneTimeSetUp]
+        public void Initialize()
+        {
+            driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Window.Size = new System.Drawing.Size(1920, 974);
+        }
+
+        [OneTimeTearDown]
+        public void EndTest()
+        {
+            driver.FindElement(By.CssSelector(".lock")).Click();
+            driver.Quit();
+        }
+
+        [Test, Order(1)]
+        public void ClickTest()
+        {                
             LogInPage logIn = new LogInPage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("blaircottingham", "Aramark22");
@@ -31,7 +46,6 @@ namespace POM.Tests
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
             homePage.LogOff();
 
-            driver.Quit();
         }
     }
 }
