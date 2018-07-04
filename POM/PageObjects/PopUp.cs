@@ -15,6 +15,9 @@ namespace POM.PageObjects
         [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.Id, Using = "do-closePopup")]
         private IWebElement FirstPopUp;
 
+        [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.XPath, Using = "//div[@id='step-0']/div[3]/button")]
+        private IWebElement ProdTour;
+
         public PopUp(IWebDriver driver)
         {
             this.driver = driver;
@@ -23,6 +26,11 @@ namespace POM.PageObjects
         public void ClosePopUp()
         {
             FirstPopUp.Click();
+        }
+
+        public void CloseProdTour()
+        {
+            ProdTour.Click();
         }
     }
 }
