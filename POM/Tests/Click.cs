@@ -29,7 +29,6 @@ namespace POM.Tests
         [OneTimeTearDown]
         public void EndTest()
         {
-            driver.FindElement(By.CssSelector(".lock")).Click();
             driver.Quit();
         }
 
