@@ -39,8 +39,8 @@ namespace POM.Tests
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("blaircottingham", "Aramark22");
 
-            IWebElement element = driver.FindElement(By.XPath("//a[contains(text(),'My Network')]"));
-            driver.FindElement(By.XPath("//a[contains(text(),'My Network')]")).Click();
+            IWebElement element = driver.FindElement(By.Id("do-closePopup"));
+            driver.FindElement(By.Id("do-closePopup")).Click();
 
             HomePage homePage = new HomePage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
