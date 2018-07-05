@@ -13,16 +13,16 @@ namespace POM.PageObjects
         private IWebDriver driver;
 
         [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.XPath, Using = "//div[@id='mainBody']/div[4]/div/div/div[2]/div/table/tbody/tr/td[2]/a")]
-        private IWebDriver CompanyResult;
+        private IWebElement CompanyResult;  
 
         public NetworkResults(IWebDriver driver)
         {
             this.driver = driver;
         }
 
-        public void VerifyResult(string //div[@id='mainBody']/div[4]/div/div/div[2]/div/table/tbody/tr/td[2]/a))
+        public void ClickResult()
         {
-            CompanyResult.Equals(//div[@id='mainBody']/div[4]/div/div/div[2]/div/table/tbody/tr/td[2]/a));        
+            CompanyResult.Click();   
         }
     }
 }

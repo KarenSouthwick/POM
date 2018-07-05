@@ -9,6 +9,7 @@ using OpenQA.Selenium.Support.PageObjects;
 using NUnit.Framework;
 using POM.PageObjects;
 using SeleniumExtras.PageObjects;
+using System.Threading;
 
 namespace POM.Tests
 {
@@ -38,6 +39,12 @@ namespace POM.Tests
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("blaircottingham", "Aramark22");
 
+            PopUp pop = new PopUp(driver);
+            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, pop);
+            pop.ClosePopUp();
+
+            Thread.Sleep(3000);
+
             HomePage home = new HomePage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, home);
             home.GoToNetworkDashboard();
@@ -48,7 +55,9 @@ namespace POM.Tests
 
             NetworkResults results = new NetworkResults(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, results);
-            results.VerifyResult("adelie");            
+            results.ClickResult();
+
+            Assert.AreEqual("www.adeliefoods.co.uk", driver.FindElement(By.LinkText("www.adeliefoods.co.uk")).Text);
             
             HomePage homePage = new HomePage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
