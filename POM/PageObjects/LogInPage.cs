@@ -22,7 +22,7 @@ namespace POM.PageObjects
         [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.Id, Using = "do-submit")]
         private IWebElement LoginButton;
         private string testName;
-
+       
         public LogInPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -33,6 +33,11 @@ namespace POM.PageObjects
             UserName.SendKeys(username);
             Password.SendKeys(password);
             LoginButton.Submit();
+        }
+
+        public void GoToLogIn()
+        {
+            driver.Navigate().GoToUrl("https://qa-platform.authenticateis.com/Account/Logon");
         }
     }
 }

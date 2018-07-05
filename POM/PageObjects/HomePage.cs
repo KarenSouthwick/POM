@@ -16,6 +16,9 @@ namespace POM.PageObjects
         [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.CssSelector, Using = ".lock")]
         private IWebElement LogOffButton;
 
+        [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.LinkText, Using = "My Network")]
+        private IWebElement NetworkLink;
+
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -24,6 +27,11 @@ namespace POM.PageObjects
         public void LogOff()
         {
             LogOffButton.Submit();
+        }
+
+        public void GoToNetworkDashboard()
+        {
+            NetworkLink.Click();
         }
     }
 }

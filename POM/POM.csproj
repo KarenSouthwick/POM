@@ -65,8 +65,11 @@
   <ItemGroup>
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\LogInPage.cs" />
+    <Compile Include="PageObjects\NetworkDashboard.cs" />
+    <Compile Include="PageObjects\NetworkResults.cs" />
     <Compile Include="PageObjects\PopUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\SearchSupplier.cs" />
     <Compile Include="Tests\AssertHome.cs" />
     <Compile Include="Tests\LogInOut.cs" />
     <Compile Include="Tests\Click.cs" />
