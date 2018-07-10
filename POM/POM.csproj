@@ -73,7 +73,6 @@
     <Compile Include="Tests\AssertHome.cs" />
     <Compile Include="Tests\LogInOut.cs" />
     <Compile Include="Tests\Click.cs" />
-    <Compile Include="Tests\ShortTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
