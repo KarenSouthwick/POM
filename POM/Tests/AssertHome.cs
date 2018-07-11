@@ -36,7 +36,7 @@ namespace POM.Tests
         {
             LogInPage logIn = new LogInPage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
-            logIn.LogIn("blaircottingham", "Aramark22");
+            logIn.LogIn("bakersgaynor", "Aramark22");
 
             IWebElement element = driver.FindElement(By.ClassName("title"));
             Assert.AreEqual("DAWN FARM FOODS LTD", driver.FindElement(By.ClassName("title")).Text);

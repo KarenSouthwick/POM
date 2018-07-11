@@ -37,7 +37,7 @@ namespace POM.Tests
         {
             LogInPage logIn = new LogInPage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
-            logIn.LogIn("blaircottingham", "Aramark22");
+            logIn.LogIn("bakersgaynor", "Aramark22");
 
             PopUp pop = new PopUp(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, pop);
