@@ -14,7 +14,7 @@ using System.Threading;
 namespace POM.Tests
 {
     [TestFixture]
-    public class Click
+    public class MyKPIs
     {
         IWebDriver driver = new ChromeDriver();
 
@@ -33,23 +33,20 @@ namespace POM.Tests
         }
 
         [Test, Order(1)]
-        public void ClickTest()
-        {                
+        public void MyKPIsTest()
+        {            
             LogInPage logIn = new LogInPage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("bakersgaynor", "Aramark22");
 
             Thread.Sleep(3000);
-            driver.FindElement(By.LinkText("My Products")).Click();
-
-            Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//div[@id='do-categoryRootNav']/div/div/ul/li[3]/div/div[2]/p/b")).Click();
-            driver.FindElement(By.XPath("//ul[@id='do-productLines']/li/div/div/p/b")).Click();
-            driver.FindElement(By.LinkText("Product Data")).Click();
 
             HomePage homePage = new HomePage(driver);
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, homePage);
-            homePage.LogOff();
+            homePage.GoToMyKPIs();
+
+            InternalKPIs internalKP = new InternalKPIs(driver);
+            internalKP.AddNewKPIs();
 
         }
     }

@@ -19,6 +19,9 @@ namespace POM.PageObjects
         [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.LinkText, Using = "My Network")]
         private IWebElement NetworkLink;
 
+        [SeleniumExtras.PageObjects.FindsBy(How = SeleniumExtras.PageObjects.How.LinkText, Using = "My Site KPI's (0)")]
+        private IWebElement MyKPIs;
+
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -32,6 +35,11 @@ namespace POM.PageObjects
         public void GoToNetworkDashboard()
         {
             NetworkLink.Click();
+        }
+
+        public void GoToMyKPIs()
+        {
+            MyKPIs.Click();
         }
     }
 }

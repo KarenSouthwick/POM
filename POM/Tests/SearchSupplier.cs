@@ -39,10 +39,6 @@ namespace POM.Tests
             SeleniumExtras.PageObjects.PageFactory.InitElements(driver, logIn);
             logIn.LogIn("bakersgaynor", "Aramark22");
 
-            PopUp pop = new PopUp(driver);
-            SeleniumExtras.PageObjects.PageFactory.InitElements(driver, pop);
-            pop.ClosePopUp();
-
             Thread.Sleep(3000);
 
             HomePage home = new HomePage(driver);
