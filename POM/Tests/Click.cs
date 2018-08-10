@@ -29,6 +29,7 @@ namespace POM.Tests
         [OneTimeTearDown]
         public void EndTest()
         {
+            driver.Manage().Cookies.DeleteCookieNamed("catalogueHistory");
             driver.Quit();
         }
 
